@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Case Cipher – Forensic Case Management System
 
-## Project info
+## Project Overview
+Case Cipher is a web-based forensic data management system designed to manage criminal cases, evidence records, suspects, officers, and investigation reports in a secure and structured way.  
+The system helps investigators store, retrieve, and analyze case-related information efficiently using a database-driven approach.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+This project demonstrates the practical implementation of Database Management System (DBMS) concepts such as relational data storage, CRUD operations, authentication, and structured data handling.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Live Website
+https://case-cipher.lovable.app
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Secure user authentication
+- Case registration and management
+- Evidence tracking and record storage
+- Suspect and officer management
+- Lab report handling
+- Structured database storage using Supabase
+- Full CRUD operations (Create, Read, Update, Delete)
+- Clean and interactive user interface
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Technologies Used
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Frontend
+- React.js
+- HTML
+- CSS
+- JavaScript
 
-Follow these steps:
+### Backend / Database
+- Supabase
+- PostgreSQL Database
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### Version Control
+- Git & GitHub
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## Project Structure
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+src/ → Application source code
+public/ → Static assets
+supabase/ → Database configuration and integration
+package.json → Project dependencies
+
+
+---
+
+## DBMS Concepts Implemented
+
+- Relational Database Design
+- Entity Relationships (Cases, Evidence, Officers, Suspects)
+- Data Normalization
+- Primary & Foreign Keys
+- Authentication and Data Security
+- CRUD Operations
+
+---
+
+## Installation (Run Locally)
+
+1. Clone the repository:
+
+git clone https://github.com/sarthak140706-spec/case-cipher.git
+
+
+2. Navigate to project folder:
+
+cd case-cipher
+
+
+3. Install dependencies:
+
+npm install
+
+
+4. Start the development server:
+
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Future Improvements
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Role-based access control
+- Advanced analytics dashboard
+- Case prediction using AI/ML
+- Report generation in PDF format
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+---
