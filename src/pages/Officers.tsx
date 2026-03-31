@@ -114,9 +114,13 @@ export default function Officers() {
   const confirmDelete = async () => {
     if (!selectedOfficer) return;
     try {
-      const { error } = await supabase.from('officers').delete().eq('id', selectedOfficer.id);
+      const { data, error } = await supabase.from('officers').delete().eq('id', selectedOfficer.id).select();
       if (error) throw error;
-      toast.success('Officer deleted successfully');
+      if (!data || data.length === 0) {
+        toast.error('Permission denied: you can only delete your own records');
+      } else {
+        toast.success('Officer deleted successfully');
+      }
       fetchOfficers();
     } catch (error) {
       toast.error('Failed to delete officer');

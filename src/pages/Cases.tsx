@@ -118,9 +118,13 @@ export default function Cases() {
   const confirmDelete = async () => {
     if (!selectedCase) return;
     try {
-      const { error } = await supabase.from('cases').delete().eq('id', selectedCase.id);
+      const { data, error } = await supabase.from('cases').delete().eq('id', selectedCase.id).select();
       if (error) throw error;
-      toast.success('Case deleted successfully');
+      if (!data || data.length === 0) {
+        toast.error('Permission denied: you can only delete your own records');
+      } else {
+        toast.success('Case deleted successfully');
+      }
       fetchCases();
     } catch (error) {
       toast.error('Failed to delete case');
