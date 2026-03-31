@@ -38,13 +38,15 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalPr
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className={cn(
-              "fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full p-4",
-              sizeClasses[size]
+              "fixed inset-0 z-50 flex items-center justify-center p-4"
             )}
           >
-            <div className="bg-card border border-border rounded-lg shadow-2xl overflow-hidden">
+            <div className={cn(
+              "bg-card border border-border rounded-lg shadow-2xl overflow-hidden w-full max-h-[calc(100vh-2rem)]",
+              sizeClasses[size]
+            )}>
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
+              <div className="flex items-center justify-between p-4 border-b border-border shrink-0">
                 <h2 className="text-lg font-semibold text-foreground">{title}</h2>
                 <button
                   onClick={onClose}
@@ -55,7 +57,7 @@ export function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalPr
               </div>
               
               {/* Content */}
-              <div className="p-4 max-h-[70vh] overflow-y-auto">
+              <div className="p-4 overflow-y-auto" style={{ maxHeight: 'calc(100vh - 6rem)' }}>
                 {children}
               </div>
             </div>
