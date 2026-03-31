@@ -140,9 +140,13 @@ export default function Suspects() {
   const confirmDelete = async () => {
     if (!selectedSuspect) return;
     try {
-      const { error } = await supabase.from('suspects').delete().eq('id', selectedSuspect.id);
+      const { data, error } = await supabase.from('suspects').delete().eq('id', selectedSuspect.id).select();
       if (error) throw error;
-      toast.success('Suspect deleted successfully');
+      if (!data || data.length === 0) {
+        toast.error('Permission denied: you can only delete your own records');
+      } else {
+        toast.success('Suspect deleted successfully');
+      }
       fetchData();
     } catch (error) {
       toast.error('Failed to delete suspect');

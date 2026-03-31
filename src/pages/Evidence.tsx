@@ -136,9 +136,13 @@ export default function EvidencePage() {
   const confirmDelete = async () => {
     if (!selectedEvidence) return;
     try {
-      const { error } = await supabase.from('evidence').delete().eq('id', selectedEvidence.id);
+      const { data, error } = await supabase.from('evidence').delete().eq('id', selectedEvidence.id).select();
       if (error) throw error;
-      toast.success('Evidence deleted successfully');
+      if (!data || data.length === 0) {
+        toast.error('Permission denied: you can only delete your own records');
+      } else {
+        toast.success('Evidence deleted successfully');
+      }
       fetchData();
     } catch (error) {
       toast.error('Failed to delete evidence');

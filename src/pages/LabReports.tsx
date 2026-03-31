@@ -153,9 +153,13 @@ export default function LabReports() {
   const confirmDelete = async () => {
     if (!selectedReport) return;
     try {
-      const { error } = await supabase.from('lab_reports').delete().eq('id', selectedReport.id);
+      const { data, error } = await supabase.from('lab_reports').delete().eq('id', selectedReport.id).select();
       if (error) throw error;
-      toast.success('Lab report deleted successfully');
+      if (!data || data.length === 0) {
+        toast.error('Permission denied: you can only delete your own records');
+      } else {
+        toast.success('Lab report deleted successfully');
+      }
       fetchData();
     } catch (error) {
       toast.error('Failed to delete lab report');
